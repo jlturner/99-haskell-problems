@@ -1,3 +1,10 @@
+-- #22
+range :: Int -> Int -> [Int]
+range start end
+  | end - start == 0 = [start]
+  | end - start < 0 = [start,(start - 1)..end]
+  | otherwise = [start..end]
+
 -- #21
 insertAt :: a -> [a] -> Int -> [a]
 insertAt element [] _ = [element]
