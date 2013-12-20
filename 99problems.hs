@@ -1,3 +1,11 @@
+-- #21
+insertAt :: a -> [a] -> Int -> [a]
+insertAt element [] _ = [element]
+insertAt element elements 0 = element : elements
+insertAt element (currentElement : remainder) n
+  | n < 0 = element : currentElement : remainder
+  | otherwise = currentElement : (insertAt element remainder (n - 1))
+
 -- #20
 removeAt :: Int -> [a] -> (Maybe a, [a])
 removeAt _ [] = (Nothing, [])
